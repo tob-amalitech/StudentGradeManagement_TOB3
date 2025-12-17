@@ -1,0 +1,159 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > HonorsStudent</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.example</a>
+</div>
+
+<h1>Coverage Summary for Class: HonorsStudent (org.example)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">HonorsStudent</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    16.7%
+  </span>
+  <span class="absValue">
+    (1/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/18)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    7.1%
+  </span>
+  <span class="absValue">
+    (1/14)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.example;
+&nbsp;
+&nbsp;// Honors student
+&nbsp;public class HonorsStudent extends Student {
+&nbsp;    
+&nbsp;    public HonorsStudent(String name, int age) {
+<b class="fc">&nbsp;        super(name, age);</b>
+&nbsp;    }
+&nbsp;    
+&nbsp;    @Override
+&nbsp;    public String getStudentType() {
+<b class="nc">&nbsp;        return &quot;Honors&quot;;</b>
+&nbsp;    }
+&nbsp;    
+&nbsp;    @Override
+&nbsp;    public void displayStudentDetails() {
+<b class="nc">&nbsp;        System.out.println(&quot;ID: &quot; + getStudentId() + &quot; | Name: &quot; + getName() + &quot; | Age: &quot; + getAge() + &quot; | Type: &quot; + getStudentType());</b>
+&nbsp;    }
+&nbsp;    
+&nbsp;    @Override
+&nbsp;    public boolean isPassing(double grade) {
+<b class="nc">&nbsp;        return grade &gt;= 60;</b>
+&nbsp;    }
+&nbsp;    
+&nbsp;    @Override
+&nbsp;    public String getGradeLevel(double grade) {
+<b class="nc">&nbsp;        if (grade &gt;= 90) return &quot;A+&quot;;</b>
+<b class="nc">&nbsp;        else if (grade &gt;= 80) return &quot;A&quot;;</b>
+<b class="nc">&nbsp;        else if (grade &gt;= 70) return &quot;B&quot;;</b>
+<b class="nc">&nbsp;        else if (grade &gt;= 60) return &quot;C&quot;;</b>
+<b class="nc">&nbsp;        else return &quot;F&quot;;</b>
+&nbsp;    }
+&nbsp;    
+&nbsp;    // NEW: Calculate GPA on 4.0 scale for Honors students (weighted higher)
+&nbsp;    @Override
+&nbsp;    public double calculateGPA(double grade) {
+<b class="nc">&nbsp;        if (grade &gt;= 90) return 4.3;</b>
+<b class="nc">&nbsp;        else if (grade &gt;= 80) return 4.0;</b>
+<b class="nc">&nbsp;        else if (grade &gt;= 70) return 3.0;</b>
+<b class="nc">&nbsp;        else if (grade &gt;= 60) return 2.0;</b>
+<b class="nc">&nbsp;        else return 0.0;</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-12-10 16:39</div>
+</div>
+</body>
+</html>

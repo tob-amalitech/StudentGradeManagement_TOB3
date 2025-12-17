@@ -1,0 +1,432 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > GradeManager</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.example</a>
+</div>
+
+<h1>Coverage Summary for Class: GradeManager (org.example)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">GradeManager</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (6/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    78.1%
+  </span>
+  <span class="absValue">
+    (50/64)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    92.8%
+  </span>
+  <span class="absValue">
+    (167/180)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.example;
+&nbsp;
+&nbsp;import java.io.*;
+&nbsp;import java.util.Arrays;
+&nbsp;
+&nbsp;// Manages grades
+&nbsp;public class GradeManager {
+&nbsp;    private Grade[] grades;
+&nbsp;    private int count;
+&nbsp;    
+<b class="fc">&nbsp;    public GradeManager() {</b>
+<b class="fc">&nbsp;        grades = new Grade[100];</b>
+<b class="fc">&nbsp;        count = 0;</b>
+&nbsp;    }
+&nbsp;    
+&nbsp;    public void recordGrade(Student student, Subject subject, double score) {
+<b class="fc">&nbsp;        String level = student.getGradeLevel(score);</b>
+<b class="fc">&nbsp;        boolean pass = student.isPassing(score);</b>
+<b class="fc">&nbsp;        double gpa = student.calculateGPA(score); // NEW: Calculate GPA</b>
+&nbsp;        
+<b class="fc">&nbsp;        if (count &lt; grades.length) {</b>
+<b class="fc">&nbsp;            grades[count++] = new Grade(student.getStudentId(), subject, score, level, pass, gpa);</b>
+&nbsp;            
+<b class="fc">&nbsp;            System.out.println(&quot;\nGrade recorded!&quot;);</b>
+<b class="fc">&nbsp;            System.out.println(&quot;Student: &quot; + student.getName());</b>
+<b class="fc">&nbsp;            System.out.println(&quot;Subject: &quot; + subject.getSubjectName());</b>
+<b class="fc">&nbsp;            System.out.println(&quot;Score: &quot; + score);</b>
+<b class="fc">&nbsp;            System.out.println(&quot;Grade: &quot; + level);</b>
+<b class="fc">&nbsp;            System.out.println(&quot;GPA: &quot; + String.format(&quot;%.2f&quot;, gpa)); // NEW: Show GPA</b>
+<b class="fc">&nbsp;            System.out.println(&quot;Status: &quot; + (pass ? &quot;PASS&quot; : &quot;FAIL&quot;));</b>
+&nbsp;        } else {
+<b class="fc">&nbsp;            System.out.println(&quot;Grade storage is full!&quot;);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;    
+&nbsp;    public void viewGradeReport(Student student) {
+<b class="fc">&nbsp;        System.out.println(&quot;\n--- Grade Report ---&quot;);</b>
+<b class="fc">&nbsp;        student.displayStudentDetails();</b>
+<b class="fc">&nbsp;        System.out.println(&quot;\nGrades:&quot;);</b>
+&nbsp;        
+<b class="fc">&nbsp;        int gradeCount = 0;</b>
+<b class="fc">&nbsp;        double total = 0;</b>
+<b class="fc">&nbsp;        double totalGPA = 0; // NEW: Track total GPA</b>
+&nbsp;        
+<b class="fc">&nbsp;        for (int i = 0; i &lt; count; i++) {</b>
+<b class="fc">&nbsp;            if (grades[i].getStudentId() == student.getStudentId()) {</b>
+<b class="fc">&nbsp;                System.out.println(grades[i].getSubject().getSubjectName() + &quot;: &quot; + </b>
+<b class="fc">&nbsp;                                 grades[i].getScore() + &quot; (&quot; + grades[i].getGradeLevel() + &quot;) - GPA: &quot; + </b>
+<b class="fc">&nbsp;                                 String.format(&quot;%.2f&quot;, grades[i].getGpa()));</b>
+<b class="fc">&nbsp;                total += grades[i].getScore();</b>
+<b class="fc">&nbsp;                totalGPA += grades[i].getGpa(); // NEW: Add to GPA total</b>
+<b class="fc">&nbsp;                gradeCount++;</b>
+&nbsp;            }
+&nbsp;        }
+&nbsp;        
+<b class="fc">&nbsp;        if (gradeCount &gt; 0) {</b>
+<b class="fc">&nbsp;            double average = total / gradeCount;</b>
+<b class="fc">&nbsp;            double avgGPA = totalGPA / gradeCount; // NEW: Calculate average GPA</b>
+<b class="fc">&nbsp;            System.out.println(&quot;\nAverage Score: &quot; + String.format(&quot;%.2f&quot;, average));</b>
+<b class="fc">&nbsp;            System.out.println(&quot;Average GPA: &quot; + String.format(&quot;%.2f&quot;, avgGPA)); // NEW: Display GPA</b>
+&nbsp;        } else {
+<b class="fc">&nbsp;            System.out.println(&quot;No grades yet.&quot;);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;    
+&nbsp;    // NEW: Export grade report to text file
+&nbsp;    public void exportGradeReport(Student student) {
+<b class="fc">&nbsp;        String filename = &quot;GradeReport_&quot; + student.getStudentId() + &quot;_&quot; + student.getName().replace(&quot; &quot;, &quot;_&quot;) + &quot;.txt&quot;;</b>
+&nbsp;        
+&nbsp;        try {
+<b class="fc">&nbsp;            FileWriter writer = new FileWriter(filename);</b>
+&nbsp;            
+<b class="fc">&nbsp;            writer.write(&quot;========================================\n&quot;);</b>
+<b class="fc">&nbsp;            writer.write(&quot;       GRADE REPORT\n&quot;);</b>
+<b class="fc">&nbsp;            writer.write(&quot;========================================\n\n&quot;);</b>
+<b class="fc">&nbsp;            writer.write(&quot;Student ID: &quot; + student.getStudentId() + &quot;\n&quot;);</b>
+<b class="fc">&nbsp;            writer.write(&quot;Name: &quot; + student.getName() + &quot;\n&quot;);</b>
+<b class="fc">&nbsp;            writer.write(&quot;Age: &quot; + student.getAge() + &quot;\n&quot;);</b>
+<b class="fc">&nbsp;            writer.write(&quot;Type: &quot; + student.getStudentType() + &quot;\n&quot;);</b>
+<b class="fc">&nbsp;            writer.write(&quot;\n========================================\n&quot;);</b>
+<b class="fc">&nbsp;            writer.write(&quot;       GRADES\n&quot;);</b>
+<b class="fc">&nbsp;            writer.write(&quot;========================================\n\n&quot;);</b>
+&nbsp;            
+<b class="fc">&nbsp;            int gradeCount = 0;</b>
+<b class="fc">&nbsp;            double total = 0;</b>
+<b class="fc">&nbsp;            double totalGPA = 0;</b>
+&nbsp;            
+<b class="fc">&nbsp;            for (int i = 0; i &lt; count; i++) {</b>
+<b class="pc">&nbsp;                if (grades[i].getStudentId() == student.getStudentId()) {</b>
+<b class="fc">&nbsp;                    writer.write(String.format(&quot;%-20s: %6.2f (%2s) - GPA: %.2f\n&quot;,</b>
+<b class="fc">&nbsp;                               grades[i].getSubject().getSubjectName(),</b>
+<b class="fc">&nbsp;                               grades[i].getScore(),</b>
+<b class="fc">&nbsp;                               grades[i].getGradeLevel(),</b>
+<b class="fc">&nbsp;                               grades[i].getGpa()));</b>
+<b class="fc">&nbsp;                    total += grades[i].getScore();</b>
+<b class="fc">&nbsp;                    totalGPA += grades[i].getGpa();</b>
+<b class="fc">&nbsp;                    gradeCount++;</b>
+&nbsp;                }
+&nbsp;            }
+&nbsp;            
+<b class="fc">&nbsp;            if (gradeCount &gt; 0) {</b>
+<b class="fc">&nbsp;                double average = total / gradeCount;</b>
+<b class="fc">&nbsp;                double avgGPA = totalGPA / gradeCount;</b>
+<b class="fc">&nbsp;                writer.write(&quot;\n========================================\n&quot;);</b>
+<b class="fc">&nbsp;                writer.write(&quot;       SUMMARY\n&quot;);</b>
+<b class="fc">&nbsp;                writer.write(&quot;========================================\n\n&quot;);</b>
+<b class="fc">&nbsp;                writer.write(&quot;Total Subjects: &quot; + gradeCount + &quot;\n&quot;);</b>
+<b class="fc">&nbsp;                writer.write(&quot;Average Score: &quot; + String.format(&quot;%.2f&quot;, average) + &quot;\n&quot;);</b>
+<b class="fc">&nbsp;                writer.write(&quot;Average GPA: &quot; + String.format(&quot;%.2f&quot;, avgGPA) + &quot;\n&quot;);</b>
+&nbsp;            } else {
+<b class="fc">&nbsp;                writer.write(&quot;\nNo grades recorded yet.\n&quot;);</b>
+&nbsp;            }
+&nbsp;            
+<b class="fc">&nbsp;            writer.write(&quot;\n========================================\n&quot;);</b>
+<b class="fc">&nbsp;            writer.write(&quot;End of Report\n&quot;);</b>
+<b class="fc">&nbsp;            writer.write(&quot;========================================\n&quot;);</b>
+&nbsp;            
+&nbsp;            writer.close();
+<b class="fc">&nbsp;            System.out.println(&quot;\n✓ Grade report exported successfully to: &quot; + filename);</b>
+&nbsp;            
+&nbsp;        } catch (IOException e) {
+<b class="nc">&nbsp;            System.out.println(&quot;Error exporting grade report: &quot; + e.getMessage());</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;    
+&nbsp;    // NEW: Bulk import grades from CSV file
+&nbsp;    public void bulkImportGrades(StudentManager studentManager) {
+<b class="fc">&nbsp;        System.out.print(&quot;\nEnter CSV filename (e.g., grades.csv): &quot;);</b>
+<b class="fc">&nbsp;        java.util.Scanner scanner = new java.util.Scanner(System.in);</b>
+<b class="fc">&nbsp;        String filename = scanner.nextLine();</b>
+&nbsp;        
+<b class="fc">&nbsp;        int successCount = 0;</b>
+<b class="fc">&nbsp;        int failCount = 0;</b>
+&nbsp;        
+&nbsp;        try {
+<b class="fc">&nbsp;            BufferedReader reader = new BufferedReader(new FileReader(filename));</b>
+&nbsp;            String line;
+<b class="fc">&nbsp;            int lineNumber = 0;</b>
+&nbsp;            
+<b class="fc">&nbsp;            System.out.println(&quot;\nImporting grades from: &quot; + filename);</b>
+<b class="fc">&nbsp;            System.out.println(&quot;Expected format: StudentID,SubjectName,SubjectCode,SubjectType,Score&quot;);</b>
+<b class="fc">&nbsp;            System.out.println(&quot;Example: 1,Math,MATH101,Core,85.5\n&quot;);</b>
+&nbsp;            
+<b class="fc">&nbsp;            while ((line = reader.readLine()) != null) {</b>
+<b class="fc">&nbsp;                lineNumber++;</b>
+&nbsp;                
+&nbsp;                // Skip empty lines
+<b class="pc">&nbsp;                if (line.trim().isEmpty()) {</b>
+&nbsp;                    continue;
+&nbsp;                }
+&nbsp;                
+&nbsp;                // Skip header line if it exists
+<b class="fc">&nbsp;                if (lineNumber == 1 &amp;&amp; line.toLowerCase().contains(&quot;student&quot;)) {</b>
+&nbsp;                    continue;
+&nbsp;                }
+&nbsp;                
+<b class="fc">&nbsp;                String[] parts = line.split(&quot;,&quot;);</b>
+&nbsp;                
+<b class="fc">&nbsp;                if (parts.length != 5) {</b>
+<b class="fc">&nbsp;                    System.out.println(&quot;Line &quot; + lineNumber + &quot; skipped - invalid format: &quot; + line);</b>
+<b class="fc">&nbsp;                    failCount++;</b>
+&nbsp;                    continue;
+&nbsp;                }
+&nbsp;                
+&nbsp;                try {
+<b class="fc">&nbsp;                    int studentId = Integer.parseInt(parts[0].trim());</b>
+<b class="fc">&nbsp;                    String subjectName = parts[1].trim();</b>
+<b class="fc">&nbsp;                    String subjectCode = parts[2].trim();</b>
+<b class="fc">&nbsp;                    String subjectType = parts[3].trim();</b>
+<b class="fc">&nbsp;                    double score = Double.parseDouble(parts[4].trim());</b>
+&nbsp;                    
+&nbsp;                    // Find student
+<b class="fc">&nbsp;                    Student student = studentManager.findStudent(studentId);</b>
+<b class="pc">&nbsp;                    if (student == null) {</b>
+<b class="fc">&nbsp;                        System.out.println(&quot;Line &quot; + lineNumber + &quot; skipped - student ID &quot; + studentId + &quot; not found&quot;);</b>
+<b class="fc">&nbsp;                        failCount++;</b>
+&nbsp;                        continue;
+&nbsp;                    }
+&nbsp;                    
+&nbsp;                    // Create subject
+&nbsp;                    Subject subject;
+<b class="nc">&nbsp;                    if (subjectType.equalsIgnoreCase(&quot;Core&quot;)) {</b>
+<b class="nc">&nbsp;                        subject = new CoreSubject(subjectName, subjectCode);</b>
+<b class="nc">&nbsp;                    } else if (subjectType.equalsIgnoreCase(&quot;Elective&quot;)) {</b>
+<b class="nc">&nbsp;                        subject = new ElectiveSubject(subjectName, subjectCode);</b>
+&nbsp;                    } else {
+<b class="nc">&nbsp;                        System.out.println(&quot;Line &quot; + lineNumber + &quot; skipped - invalid subject type: &quot; + subjectType);</b>
+<b class="nc">&nbsp;                        failCount++;</b>
+&nbsp;                        continue;
+&nbsp;                    }
+&nbsp;                    
+&nbsp;                    // Validate score
+<b class="nc">&nbsp;                    if (score &lt; 0 || score &gt; 100) {</b>
+<b class="nc">&nbsp;                        System.out.println(&quot;Line &quot; + lineNumber + &quot; skipped - invalid score: &quot; + score);</b>
+<b class="nc">&nbsp;                        failCount++;</b>
+&nbsp;                        continue;
+&nbsp;                    }
+&nbsp;                    
+&nbsp;                    // Record grade
+<b class="nc">&nbsp;                    recordGrade(student, subject, score);</b>
+<b class="nc">&nbsp;                    successCount++;</b>
+&nbsp;                    
+&nbsp;                } catch (NumberFormatException e) {
+<b class="fc">&nbsp;                    System.out.println(&quot;Line &quot; + lineNumber + &quot; skipped - invalid number format: &quot; + line);</b>
+<b class="fc">&nbsp;                    failCount++;</b>
+&nbsp;                }
+&nbsp;            }
+&nbsp;            
+&nbsp;            reader.close();
+&nbsp;            
+<b class="fc">&nbsp;            System.out.println(&quot;\n========================================&quot;);</b>
+<b class="fc">&nbsp;            System.out.println(&quot;Import Complete!&quot;);</b>
+<b class="fc">&nbsp;            System.out.println(&quot;Successfully imported: &quot; + successCount + &quot; grades&quot;);</b>
+<b class="fc">&nbsp;            System.out.println(&quot;Failed: &quot; + failCount + &quot; records&quot;);</b>
+<b class="fc">&nbsp;            System.out.println(&quot;========================================&quot;);</b>
+&nbsp;            
+&nbsp;        } catch (FileNotFoundException e) {
+<b class="fc">&nbsp;            System.out.println(&quot;Error: File not found - &quot; + filename);</b>
+&nbsp;        } catch (IOException e) {
+<b class="nc">&nbsp;            System.out.println(&quot;Error reading file: &quot; + e.getMessage());</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;    
+&nbsp;    // NEW: Calculate and display grade statistics
+&nbsp;    public void viewGradeStatistics(StudentManager studentManager) {
+<b class="fc">&nbsp;        if (count == 0) {</b>
+<b class="fc">&nbsp;            System.out.println(&quot;\nNo grades recorded yet!&quot;);</b>
+&nbsp;            return;
+&nbsp;        }
+&nbsp;        
+<b class="fc">&nbsp;        System.out.println(&quot;\n========================================&quot;);</b>
+<b class="fc">&nbsp;        System.out.println(&quot;       GRADE STATISTICS&quot;);</b>
+<b class="fc">&nbsp;        System.out.println(&quot;========================================\n&quot;);</b>
+&nbsp;        
+&nbsp;        // Collect all scores
+<b class="fc">&nbsp;        double[] allScores = new double[count];</b>
+<b class="fc">&nbsp;        for (int i = 0; i &lt; count; i++) {</b>
+<b class="fc">&nbsp;            allScores[i] = grades[i].getScore();</b>
+&nbsp;        }
+&nbsp;        
+&nbsp;        // Sort scores for median calculation
+<b class="fc">&nbsp;        Arrays.sort(allScores);</b>
+&nbsp;        
+&nbsp;        // Calculate statistics
+<b class="fc">&nbsp;        double sum = 0;</b>
+<b class="fc">&nbsp;        double highest = allScores[count - 1];</b>
+<b class="fc">&nbsp;        double lowest = allScores[0];</b>
+&nbsp;        
+<b class="fc">&nbsp;        for (int i = 0; i &lt; count; i++) {</b>
+<b class="fc">&nbsp;            sum += allScores[i];</b>
+&nbsp;        }
+<b class="fc">&nbsp;        double mean = sum / count;</b>
+&nbsp;        
+&nbsp;        // Calculate median
+&nbsp;        double median;
+<b class="fc">&nbsp;        if (count % 2 == 0) {</b>
+<b class="fc">&nbsp;            median = (allScores[count/2 - 1] + allScores[count/2]) / 2.0;</b>
+&nbsp;        } else {
+<b class="fc">&nbsp;            median = allScores[count/2];</b>
+&nbsp;        }
+&nbsp;        
+&nbsp;        // Calculate standard deviation
+<b class="fc">&nbsp;        double sumSquaredDiff = 0;</b>
+<b class="fc">&nbsp;        for (int i = 0; i &lt; count; i++) {</b>
+<b class="fc">&nbsp;            double diff = allScores[i] - mean;</b>
+<b class="fc">&nbsp;            sumSquaredDiff += diff * diff;</b>
+&nbsp;        }
+<b class="fc">&nbsp;        double stdDev = Math.sqrt(sumSquaredDiff / count);</b>
+&nbsp;        
+&nbsp;        // Count passing/failing grades
+<b class="fc">&nbsp;        int passing = 0;</b>
+<b class="fc">&nbsp;        int failing = 0;</b>
+<b class="fc">&nbsp;        for (int i = 0; i &lt; count; i++) {</b>
+<b class="fc">&nbsp;            if (grades[i].isPassing()) {</b>
+<b class="fc">&nbsp;                passing++;</b>
+&nbsp;            } else {
+<b class="fc">&nbsp;                failing++;</b>
+&nbsp;            }
+&nbsp;        }
+&nbsp;        
+&nbsp;        // Display statistics
+<b class="fc">&nbsp;        System.out.println(&quot;Total Grades Recorded: &quot; + count);</b>
+<b class="fc">&nbsp;        System.out.println(&quot;Total Students: &quot; + studentManager.getStudentCount());</b>
+<b class="fc">&nbsp;        System.out.println(&quot;\nScore Statistics:&quot;);</b>
+<b class="fc">&nbsp;        System.out.println(&quot;  Highest Score: &quot; + String.format(&quot;%.2f&quot;, highest));</b>
+<b class="fc">&nbsp;        System.out.println(&quot;  Lowest Score: &quot; + String.format(&quot;%.2f&quot;, lowest));</b>
+<b class="fc">&nbsp;        System.out.println(&quot;  Mean (Average): &quot; + String.format(&quot;%.2f&quot;, mean));</b>
+<b class="fc">&nbsp;        System.out.println(&quot;  Median: &quot; + String.format(&quot;%.2f&quot;, median));</b>
+<b class="fc">&nbsp;        System.out.println(&quot;  Standard Deviation: &quot; + String.format(&quot;%.2f&quot;, stdDev));</b>
+<b class="fc">&nbsp;        System.out.println(&quot;\nPass/Fail Statistics:&quot;);</b>
+<b class="fc">&nbsp;        System.out.println(&quot;  Passing: &quot; + passing + &quot; (&quot; + String.format(&quot;%.1f&quot;, (passing * 100.0 / count)) + &quot;%)&quot;);</b>
+<b class="fc">&nbsp;        System.out.println(&quot;  Failing: &quot; + failing + &quot; (&quot; + String.format(&quot;%.1f&quot;, (failing * 100.0 / count)) + &quot;%)&quot;);</b>
+&nbsp;        
+&nbsp;        // Grade distribution
+<b class="fc">&nbsp;        System.out.println(&quot;\nGrade Distribution:&quot;);</b>
+<b class="fc">&nbsp;        int[] gradeDistribution = new int[6]; // A, B, C, D, E, F</b>
+<b class="fc">&nbsp;        for (int i = 0; i &lt; count; i++) {</b>
+<b class="fc">&nbsp;            String grade = grades[i].getGradeLevel();</b>
+<b class="fc">&nbsp;            if (grade.startsWith(&quot;A&quot;)) gradeDistribution[0]++;</b>
+<b class="fc">&nbsp;            else if (grade.startsWith(&quot;B&quot;)) gradeDistribution[1]++;</b>
+<b class="fc">&nbsp;            else if (grade.startsWith(&quot;C&quot;)) gradeDistribution[2]++;</b>
+<b class="pc">&nbsp;            else if (grade.startsWith(&quot;D&quot;)) gradeDistribution[3]++;</b>
+<b class="pc">&nbsp;            else if (grade.startsWith(&quot;E&quot;)) gradeDistribution[4]++;</b>
+<b class="pc">&nbsp;            else if (grade.startsWith(&quot;F&quot;)) gradeDistribution[5]++;</b>
+&nbsp;        }
+&nbsp;        
+<b class="fc">&nbsp;        System.out.println(&quot;  A: &quot; + gradeDistribution[0] + &quot; (&quot; + String.format(&quot;%.1f&quot;, (gradeDistribution[0] * 100.0 / count)) + &quot;%)&quot;);</b>
+<b class="fc">&nbsp;        System.out.println(&quot;  B: &quot; + gradeDistribution[1] + &quot; (&quot; + String.format(&quot;%.1f&quot;, (gradeDistribution[1] * 100.0 / count)) + &quot;%)&quot;);</b>
+<b class="fc">&nbsp;        System.out.println(&quot;  C: &quot; + gradeDistribution[2] + &quot; (&quot; + String.format(&quot;%.1f&quot;, (gradeDistribution[2] * 100.0 / count)) + &quot;%)&quot;);</b>
+<b class="fc">&nbsp;        System.out.println(&quot;  D: &quot; + gradeDistribution[3] + &quot; (&quot; + String.format(&quot;%.1f&quot;, (gradeDistribution[3] * 100.0 / count)) + &quot;%)&quot;);</b>
+<b class="fc">&nbsp;        System.out.println(&quot;  E: &quot; + gradeDistribution[4] + &quot; (&quot; + String.format(&quot;%.1f&quot;, (gradeDistribution[4] * 100.0 / count)) + &quot;%)&quot;);</b>
+<b class="fc">&nbsp;        System.out.println(&quot;  F: &quot; + gradeDistribution[5] + &quot; (&quot; + String.format(&quot;%.1f&quot;, (gradeDistribution[5] * 100.0 / count)) + &quot;%)&quot;);</b>
+&nbsp;        
+<b class="fc">&nbsp;        System.out.println(&quot;\n========================================&quot;);</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-12-10 16:39</div>
+</div>
+</body>
+</html>
