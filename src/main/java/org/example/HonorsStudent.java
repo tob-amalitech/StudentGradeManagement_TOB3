@@ -31,7 +31,9 @@ public class HonorsStudent extends Student {
         else return "F";
     }
     
-    // NEW: Calculate GPA on 4.0 scale for Honors students (weighted higher)
+    /**
+     * Calculate GPA on a weighted 4.0+ scale for honors students.
+     */
     @Override
     public double calculateGPA(double grade) {
         if (grade >= 90) return 4.3;

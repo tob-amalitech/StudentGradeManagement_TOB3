@@ -1,0 +1,6 @@
+Report for Harper Wright (STU035)
+GPA: 67.0
+Grades:
+ - BIO110 (Biology): 62.00
+ - MAT101 (Mathematics): 67.00
+ - ENG203 (English): 72.00

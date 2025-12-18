@@ -1,0 +1,6 @@
+Report for Emma Wilson (STU013)
+GPA: 86.0
+Grades:
+ - CS105 (Computer Science): 81.00
+ - HIST210 (History): 86.00
+ - BIO110 (Biology): 91.00

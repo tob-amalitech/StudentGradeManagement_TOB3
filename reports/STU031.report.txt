@@ -1,0 +1,6 @@
+Report for Mason Clark (STU031)
+GPA: 92.0
+Grades:
+ - MAT101 (Mathematics): 87.00
+ - ENG203 (English): 92.00
+ - CS105 (Computer Science): 97.00

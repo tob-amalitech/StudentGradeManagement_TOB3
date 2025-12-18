@@ -1,21 +1,12 @@
 package org.example;
 
 /**
- * OPEN/CLOSED PRINCIPLE (OCP)
- * 
- * This factory creates subjects dynamically.
- * You can add new subjects without modifying Main.java!
- * 
- * Benefits for beginners:
- * - Instead of hard-coding subjects in Main, they're created by factory
- * - To add a new subject, just add it to this factory
- * - Main.java stays clean and simple
- * - Easy to change subject lists without touching UI code
- * 
- * How it works:
- * 1. User selects a subject type and number
- * 2. Factory creates the right subject
- * 3. No hard-coded Subject creation in Main
+ * Factory for creating subject instances (core and elective).
+ *
+ * Encapsulates subject construction and provides helper methods for
+ * displaying available options. Adding new subjects is localized to this
+ * factory, keeping the CLI and business logic decoupled from subject
+ * creation details.
  */
 public class SubjectFactory {
     
@@ -66,8 +57,7 @@ public class SubjectFactory {
     }
     
     /**
-     * Get list of available core subjects
-     * This can be used to display choices to user
+     * Display available core subject options to the user.
      */
     public static void displayCoreSubjectOptions() {
         System.out.println("1. Math  2. English  3. Science");

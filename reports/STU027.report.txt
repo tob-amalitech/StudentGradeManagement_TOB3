@@ -1,0 +1,6 @@
+Report for Olivia Davis (STU027)
+GPA: 77.0
+Grades:
+ - ENG203 (English): 72.00
+ - CS105 (Computer Science): 77.00
+ - HIST210 (History): 82.00

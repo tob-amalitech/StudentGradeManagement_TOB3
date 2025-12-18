@@ -1,0 +1,6 @@
+Report for Sam Carter (STU023)
+GPA: 69.0
+Grades:
+ - CS105 (Computer Science): 64.00
+ - HIST210 (History): 69.00
+ - BIO110 (Biology): 74.00

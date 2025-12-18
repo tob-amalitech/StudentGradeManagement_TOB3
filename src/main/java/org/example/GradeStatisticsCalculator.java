@@ -3,15 +3,10 @@ package org.example;
 import java.util.Arrays;
 
 /**
- * SINGLE RESPONSIBILITY PRINCIPLE (SRP)
- * 
- * This class has ONE job: calculate and display grade statistics.
- * It doesn't manage grades, export files, or import data.
- * 
- * Benefits for beginners:
- * - If you want to add new statistics (median, mode, percentile), add them here
- * - All statistics logic is in one place
- * - Easy to modify how statistics are displayed
+ * Computes and displays grade statistics.
+ *
+ * Responsibilities include computing mean, median, standard deviation,
+ * pass/fail counts and grade distribution based on repository data.
  */
 public class GradeStatisticsCalculator implements IGradeStatisticsCalculator {
     

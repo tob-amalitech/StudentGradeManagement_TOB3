@@ -1,0 +1,6 @@
+Report for Ava Johnson (STU029)
+GPA: 88.0
+Grades:
+ - HIST210 (History): 83.00
+ - BIO110 (Biology): 88.00
+ - MAT101 (Mathematics): 93.00

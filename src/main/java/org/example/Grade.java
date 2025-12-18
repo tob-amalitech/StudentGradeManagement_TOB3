@@ -1,52 +1,64 @@
 package org.example;
 
-// Grade class
-public class Grade {
-    private static int counter = 0;
-    private int gradeId;
-    private int studentId;
-    private Subject subject;
-    private double score;
+import java.io.Serializable;
+import java.time.LocalDateTime;
+
+public class Grade implements Serializable {
+    private static final long serialVersionUID = 1L;
+
+    private final String courseCode;
+    private final String courseName;
+    private final double score;
+    private final LocalDateTime timestamp;
+    // Compatibility fields
+    private int studentId; // optional numeric id
+    private Subject subject; // optional subject object
     private String gradeLevel;
     private boolean passing;
-    private double gpa; // NEW: Store GPA value
-    
+    private double gpa;
+
+    public Grade(String courseCode, String courseName, double score) {
+        this.courseCode = courseCode;
+        this.courseName = courseName;
+        this.score = score;
+        this.timestamp = LocalDateTime.now();
+    }
+
+    // Legacy-compatible constructor
     public Grade(int studentId, Subject subject, double score, String gradeLevel, boolean passing, double gpa) {
-        this.gradeId = ++counter;
+        this.courseCode = subject == null ? "" : subject.getSubjectCode();
+        this.courseName = subject == null ? "" : subject.getSubjectName();
+        this.score = score;
+        this.timestamp = LocalDateTime.now();
         this.studentId = studentId;
         this.subject = subject;
-        this.score = score;
         this.gradeLevel = gradeLevel;
         this.passing = passing;
         this.gpa = gpa;
     }
-    
-    public int getGradeId() {
-        return gradeId;
+
+    public String getCourseCode() {
+        return courseCode;
     }
-    
-    public int getStudentId() { 
-        return studentId; 
+
+    public String getCourseName() {
+        return courseName;
     }
-    
-    public Subject getSubject() { 
-        return subject; 
+
+    public double getScore() {
+        return score;
     }
-    
-    public double getScore() { 
-        return score; 
+
+    public LocalDateTime getTimestamp() {
+        return timestamp;
     }
-    
-    public String getGradeLevel() { 
-        return gradeLevel; 
-    }
-    
-    public boolean isPassing() { 
-        return passing; 
-    }
-    
-    // NEW: Get GPA value
-    public double getGpa() {
-        return gpa;
-    }
+
+    // Compatibility getters used by older code
+    public int getStudentId() { return studentId; }
+    public Subject getSubject() { return subject; }
+    public String getGradeLevel() { return gradeLevel; }
+    public boolean isPassing() { return passing; }
+    public double getGpa() { return gpa; }
+    public void setStudentId(int id) { this.studentId = id; }
 }
+

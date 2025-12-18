@@ -3,15 +3,11 @@ package org.example;
 import java.io.*;
 
 /**
- * SINGLE RESPONSIBILITY PRINCIPLE (SRP)
- * 
- * This class has ONE job: import grades from CSV files.
- * It doesn't manage grades, export files, or calculate statistics.
- * 
- * Benefits for beginners:
- * - If CSV format changes or you want to support Excel, modify only this class
- * - All import logic is in one place
- * - Easy to test import functionality
+ * Responsible for importing grades from CSV files into the grade repository.
+ *
+ * Responsibilities include parsing CSV lines, validating fields, locating
+ * students, constructing Grade objects, and recording import success/failure
+ * counts. The class focuses solely on import concerns.
  */
 public class GradeImporter implements IGradeImporter {
     private int successCount;

@@ -1,0 +1,6 @@
+Report for Sophia Lee (STU030)
+GPA: 90.0
+Grades:
+ - BIO110 (Biology): 85.00
+ - MAT101 (Mathematics): 90.00
+ - ENG203 (English): 95.00

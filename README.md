@@ -23,116 +23,84 @@ A Java-based console application for managing students and their grades with sup
 **Interfaces:**
 - `Gradable` - Defines grading behavior for students
 
-**Abstract Classes:**
-- `Student` - Base class for all student types
-- `Subject` - Base class for all subject types
+"""
+# Student Grade Management System — Lab-ready Summary
 
-**Concrete Classes:**
-- `RegularStudent` - Standard students with 50% passing threshold
-- `HonorsStudent` - Advanced students with 60% passing threshold
-- `CoreSubject` - Required subjects (Math, English, Science)
-- `ElectiveSubject` - Optional subjects (Music, Art, PE)
-- `Grade` - Stores individual grade records
-- `StudentManager` - Handles student operations
-- `GradeManager` - Handles grade operations
+This project is a teaching-grade Student Grade Management System implemented in Java. It demonstrates modern Java features (NIO.2, Streams), appropriate Collections usage, concurrency primitives, and input validation.
 
-## Grading Systems
+Quick goals for your lab review
+ - Run the CLI demo and show: CSV import, concurrent report generation, live stats updating, and audit log tailing.
 
-### Regular Students
-- **Passing Grade**: 50 or above
-- **Grade Scale**:
-  - A: 90-100
-  - B: 80-89
-  - C: 70-79
-  - D: 60-69
-  - E: 50-59
-  - F: Below 50
+Getting started
+ - Build and run tests:
 
-### Honors Students
-- **Passing Grade**: 60 or above
-- **Grade Scale**:
-  - A+: 90-100
-  - A: 80-89
-  - B: 70-79
-  - C: 60-69
-  - F: Below 60
-
-## How to Use
-
-### Compilation
-```bash
-javac Main.java
+```powershell
+.\gradlew.bat clean test
 ```
 
-### Running
-```bash
-java Main
+ - Run the application (CLI):
+
+```powershell
+.\gradlew.bat run
 ```
 
-### Menu Options
+Important project locations
+ - Data directories: data/csv/, data/json/, data/binary/
+ - Reports output: reports/
+ - Audit log file: audit.log
 
-1. **View Students** - Display all registered students with their details
-2. **Add Student** - Register a new Regular or Honors student
-3. **Record Grade** - Enter a grade for a specific student and subject
-4. **View Grade Report** - See all grades and average for a student
-5. **Exit** - Close the application
+Key implemented features (matching lab user stories)
+ - Multi-format I/O: CSV streaming import, JSON export, binary serialization — see src/main/java/org/example/FileService.java.
+ - Regex validation: centralised in src/main/java/org/example/ValidationUtils.java (Student ID, email, phone, name, date, course code, grade patterns).
+ - Thread-safe data store & collections: DataStore uses ConcurrentHashMap for O(1) lookup and TreeMap for sorted GPA rankings.
+ - Concurrent report generation: ReportGenerator uses a fixed thread pool and reports per-student timing and progress.
+ - Real-time stats: StatsService runs as a background scheduled task (updates every 5s) and provides snapshots.
+ - Scheduler: SchedulerService wraps a ScheduledExecutorService for recurring tasks.
+ - Caching: LRUCache (ConcurrentHashMap + access-order LinkedHashMap) with eviction and stats.
+ - Audit trail: AuditLogger writes asynchronously with size-based rotation; CLI includes a tail viewer.
+ - Advanced regex search: AdvancedSearch supports field-based regex queries and match highlighting.
 
-### Sample Workflow
+Quick demo script (recommended for a 5–8 minute lab demo)
+ 1. Run the app: .\gradlew.bat run
+ 2. Import sample CSV:
+   - Choose menu option for Bulk Import (or provide path data/csv/import.csv).
+   - Show import timing and any parse errors.
+ 3. Generate reports concurrently:
+   - Use the "Generate Reports (concurrent)" menu entry.
+   - Pick default thread count (4) and show inline progress and final timings.
+ 4. Show live stats:
+   - Use the "View Grade Statistics" menu entry to display the latest snapshot (auto-updated by background thread).
+ 5. Tail the audit log:
+   - Use the "View Audit Log (tail)" menu entry to show recent audit entries.
 
-1. Start the program
-2. Select option 1 to view the 5 pre-loaded students (IDs 1-5)
-3. Select option 3 to record a grade:
-   - Enter student ID (e.g., 1)
-   - Choose subject type (Core or Elective)
-   - Select specific subject
-   - Enter score (0-100)
-4. Select option 4 to view the grade report for that student
+Useful files to reference during the review
+ - src/main/java/org/example/Main.java — CLI wiring and demo commands
+ - src/main/java/org/example/FileService.java — CSV/JSON/Binary I/O
+ - src/main/java/org/example/ReportGenerator.java — concurrent report generation and progress listener
+ - src/main/java/org/example/StatsService.java — background statistics
+ - src/main/java/org/example/LRUCache.java — thread-safe LRU cache implementation
+ - src/main/java/org/example/AuditLogger.java — asynchronous audit logging with rotation
+ - BIG_O.md — Big‑O analysis for key collections and operations
 
-## Pre-loaded Students
+What is fully implemented (ready for demo)
+ - CSV streaming import (large files supported via Files.lines())
+ - JSON export and binary serialization
+ - Regex-based validation and reusable ValidationUtils
+ - Concurrent report generation with timing and inline progress
+ - Background stats updates (daemon thread) and snapshot API
+ - Thread-safe cache and audit logging with CLI tail
 
-The system comes with 5 sample students:
-- Alice (ID: 1) - Regular Student, Age 18
-- Bob (ID: 2) - Regular Student, Age 17
-- Charlie (ID: 3) - Regular Student, Age 19
-- Diana (ID: 4) - Honors Student, Age 18
-- Edward (ID: 5) - Honors Student, Age 17
+Remaining polish (won't block a lab demo)
+ - Persistent schedule storage (schedules survive restarts) — currently the scheduler runs in-memory.
+ - WatchService-based automatic import detection (bonus feature)
+ - More exhaustive tests and larger sample datasets for performance comparisons
+ - Audit rotation metadata (daily rotation + rotation logs) and an interactive audit viewer with filters
 
-## Available Subjects
+Notes for the reviewer
+ - The code compiles and tests pass. To reproduce: run .\gradlew.bat clean test.
+ - The CLI demonstrates the main workflows; open the listed source files during the review to point out design decisions: use of ConcurrentHashMap for lookups, TreeMap for rankings, LinkedList for grade history, and ExecutorService for concurrency.
 
-**Core Subjects:**
-- Math (MATH101)
-- English (ENG101)
-- Science (SCI101)
 
-**Elective Subjects:**
-- Music (MUS101)
-- Art (ART101)
-- PE (PE101)
 
-## Technical Details
+"""
 
-- **Language**: Java
-- **Storage**: In-memory arrays (no database)
-- **Capacity**: Up to 50 students and 100 grade records
-- **ID Generation**: Automatic incremental IDs for students and grades
-
-## Requirements
-
-- Java Development Kit (JDK) 8 or higher
-- Command-line interface or terminal
-
-## Limitations
-
-- Data is not persisted between sessions
-- Fixed array sizes (50 students, 100 grades)
-- Console-based interface only
-- No data validation for edge cases (e.g., negative ages, scores above 100)
-
-## Future Enhancements
-
-- Database integration for persistent storage
-- Input validation and error handling
-- Support for more subject types
-- Grade history and trend analysis
-- Export reports to files
-- Graphical user interface (GUI)

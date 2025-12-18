@@ -1,16 +1,10 @@
 package org.example;
 
 /**
- * SINGLE RESPONSIBILITY PRINCIPLE (SRP)
- * 
- * This class has ONE job: store and retrieve grades.
- * It doesn't worry about exporting files, importing CSVs, or calculating statistics.
- * 
- * Benefits for beginners:
- * - Easier to understand what this class does
- * - Easier to test (just test storage operations)
- * - If you need to change how grades are stored, you only change this class
- * - Can reuse this class in different projects
+ * In-memory grade repository.
+ *
+ * Provides simple storage and retrieval operations for Grade objects. This
+ * implementation is intentionally lightweight for demonstration and testing.
  */
 public class GradeRepository implements IGradeRepository {
     private Grade[] grades;

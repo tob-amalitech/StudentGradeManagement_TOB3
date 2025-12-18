@@ -1,0 +1,6 @@
+Report for Liam Smith (STU010)
+GPA: 73.0
+Grades:
+ - BIO110 (Biology): 68.00
+ - MAT101 (Mathematics): 73.00
+ - ENG203 (English): 78.00

@@ -1,0 +1,6 @@
+Report for Noah Brown (STU026)
+GPA: 75.0
+Grades:
+ - MAT101 (Mathematics): 70.00
+ - ENG203 (English): 75.00
+ - CS105 (Computer Science): 80.00

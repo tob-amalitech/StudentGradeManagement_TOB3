@@ -1,0 +1,6 @@
+Report for Maria Gomez (STU009)
+GPA: 71.0
+Grades:
+ - HIST210 (History): 66.00
+ - BIO110 (Biology): 71.00
+ - MAT101 (Mathematics): 76.00

@@ -27,9 +27,12 @@ public class StudentManager {
     }
     
     public void viewAllStudents() {
-        System.out.println("\n--- All Students ---");
+        System.out.println("\n\u001B[1;36m--- All Students ---\u001B[0m");
+        System.out.printf("% -6s | %-20s | %-3s | %-8s | %-6s\n", "ID", "Name", "Age", "Type", "GPA");
+        System.out.println("---------------------------------------------------------------");
         for (int i = 0; i < count; i++) {
-            students[i].displayStudentDetails();
+            Student s = students[i];
+            System.out.printf("% -6s | %-20s | %-3d | %-8s | %5.2f\n", s.getId(), s.getName(), s.getAge(), s.getStudentType(), s.computeGPA());
         }
     }
     
@@ -42,7 +45,7 @@ public class StudentManager {
         return null;
     }
     
-    // NEW: Search students by name or ID with partial matching
+    // Search students by name or ID with partial matching (case-insensitive)
     public void searchStudents(String query) {
         System.out.println("\n--- Search Results for: '" + query + "' ---");
         boolean found = false;
@@ -79,7 +82,7 @@ public class StudentManager {
         }
     }
     
-    // NEW: Get all students (for statistics)
+    // Return array of all students (snapshot) for statistics and reporting
     public Student[] getAllStudents() {
         Student[] result = new Student[count];
         for (int i = 0; i < count; i++) {

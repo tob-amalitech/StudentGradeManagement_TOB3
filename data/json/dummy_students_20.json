@@ -1,0 +1,202 @@
+[
+  {
+    "id": "STU201",
+    "name": "Alice Example",
+    "email": "alice@example.edu",
+    "phone": "555-020-0001",
+    "courses": [
+      { "courseCode": "MAT101", "courseName": "Mathematics", "score": 89 },
+      { "courseCode": "CS105", "courseName": "Computer Science", "score": 94 }
+    ]
+  },
+  {
+    "id": "STU202",
+    "name": "Bob Example",
+    "email": "bob@example.edu",
+    "phone": "555-020-0002",
+    "courses": [
+      { "courseCode": "ENG203", "courseName": "English", "score": 76 },
+      { "courseCode": "HIST210", "courseName": "History", "score": 82 }
+    ]
+  },
+  {
+    "id": "STU203",
+    "name": "Carol Example",
+    "email": "carol@example.edu",
+    "phone": "555-020-0003",
+    "courses": [
+      { "courseCode": "BIO110", "courseName": "Biology", "score": 85 },
+      { "courseCode": "MAT101", "courseName": "Mathematics", "score": 79 }
+    ]
+  },
+  {
+    "id": "STU204",
+    "name": "Dan Example",
+    "email": "dan@example.edu",
+    "phone": "555-020-0004",
+    "courses": [
+      { "courseCode": "CS105", "courseName": "Computer Science", "score": 91 },
+      { "courseCode": "ENG203", "courseName": "English", "score": 73 }
+    ]
+  },
+  {
+    "id": "STU205",
+    "name": "Eve Example",
+    "email": "eve@example.edu",
+    "phone": "555-020-0005",
+    "courses": [
+      { "courseCode": "HIST210", "courseName": "History", "score": 88 },
+      { "courseCode": "BIO110", "courseName": "Biology", "score": 84 }
+    ]
+  },
+  {
+    "id": "STU206",
+    "name": "Frank Example",
+    "email": "frank@example.edu",
+    "phone": "555-020-0006",
+    "courses": [
+      { "courseCode": "MAT101", "courseName": "Mathematics", "score": 68 },
+      { "courseCode": "CS105", "courseName": "Computer Science", "score": 72 }
+    ]
+  },
+  {
+    "id": "STU207",
+    "name": "Grace Example",
+    "email": "grace@example.edu",
+    "phone": "555-020-0007",
+    "courses": [
+      { "courseCode": "ENG203", "courseName": "English", "score": 95 },
+      { "courseCode": "BIO110", "courseName": "Biology", "score": 92 }
+    ]
+  },
+  {
+    "id": "STU208",
+    "name": "Heidi Example",
+    "email": "heidi@example.edu",
+    "phone": "555-020-0008",
+    "courses": [
+      { "courseCode": "CS105", "courseName": "Computer Science", "score": 77 },
+      { "courseCode": "MAT101", "courseName": "Mathematics", "score": 81 }
+    ]
+  },
+  {
+    "id": "STU209",
+    "name": "Ivan Example",
+    "email": "ivan@example.edu",
+    "phone": "555-020-0009",
+    "courses": [
+      { "courseCode": "HIST210", "courseName": "History", "score": 69 },
+      { "courseCode": "ENG203", "courseName": "English", "score": 74 }
+    ]
+  },
+  {
+    "id": "STU210",
+    "name": "Judy Example",
+    "email": "judy@example.edu",
+    "phone": "555-020-0010",
+    "courses": [
+      { "courseCode": "BIO110", "courseName": "Biology", "score": 86 },
+      { "courseCode": "CS105", "courseName": "Computer Science", "score": 90 }
+    ]
+  },
+  {
+    "id": "STU211",
+    "name": "Karl Example",
+    "email": "karl@example.edu",
+    "phone": "555-020-0011",
+    "courses": [
+      { "courseCode": "MAT101", "courseName": "Mathematics", "score": 84 },
+      { "courseCode": "ENG203", "courseName": "English", "score": 78 }
+    ]
+  },
+  {
+    "id": "STU212",
+    "name": "Lena Example",
+    "email": "lena@example.edu",
+    "phone": "555-020-0012",
+    "courses": [
+      { "courseCode": "CS105", "courseName": "Computer Science", "score": 88 },
+      { "courseCode": "HIST210", "courseName": "History", "score": 80 }
+    ]
+  },
+  {
+    "id": "STU213",
+    "name": "Mona Example",
+    "email": "mona@example.edu",
+    "phone": "555-020-0013",
+    "courses": [
+      { "courseCode": "BIO110", "courseName": "Biology", "score": 79 },
+      { "courseCode": "MAT101", "courseName": "Mathematics", "score": 85 }
+    ]
+  },
+  {
+    "id": "STU214",
+    "name": "Ned Example",
+    "email": "ned@example.edu",
+    "phone": "555-020-0014",
+    "courses": [
+      { "courseCode": "ENG203", "courseName": "English", "score": 71 },
+      { "courseCode": "CS105", "courseName": "Computer Science", "score": 69 }
+    ]
+  },
+  {
+    "id": "STU215",
+    "name": "Olga Example",
+    "email": "olga@example.edu",
+    "phone": "555-020-0015",
+    "courses": [
+      { "courseCode": "HIST210", "courseName": "History", "score": 92 },
+      { "courseCode": "BIO110", "courseName": "Biology", "score": 90 }
+    ]
+  },
+  {
+    "id": "STU216",
+    "name": "Pete Example",
+    "email": "pete@example.edu",
+    "phone": "555-020-0016",
+    "courses": [
+      { "courseCode": "MAT101", "courseName": "Mathematics", "score": 73 },
+      { "courseCode": "CS105", "courseName": "Computer Science", "score": 75 }
+    ]
+  },
+  {
+    "id": "STU217",
+    "name": "Quinn Example",
+    "email": "quinn@example.edu",
+    "phone": "555-020-0017",
+    "courses": [
+      { "courseCode": "ENG203", "courseName": "English", "score": 87 },
+      { "courseCode": "HIST210", "courseName": "History", "score": 83 }
+    ]
+  },
+  {
+    "id": "STU218",
+    "name": "Rita Example",
+    "email": "rita@example.edu",
+    "phone": "555-020-0018",
+    "courses": [
+      { "courseCode": "BIO110", "courseName": "Biology", "score": 78 },
+      { "courseCode": "MAT101", "courseName": "Mathematics", "score": 80 }
+    ]
+  },
+  {
+    "id": "STU219",
+    "name": "Sam Example",
+    "email": "sam@example.edu",
+    "phone": "555-020-0019",
+    "courses": [
+      { "courseCode": "CS105", "courseName": "Computer Science", "score": 91 },
+      { "courseCode": "ENG203", "courseName": "English", "score": 86 }
+    ]
+  },
+  {
+    "id": "STU220",
+    "name": "Tina Example",
+    "email": "tina@example.edu",
+    "phone": "555-020-0020",
+    "courses": [
+      { "courseCode": "HIST210", "courseName": "History", "score": 70 },
+      { "courseCode": "BIO110", "courseName": "Biology", "score": 76 }
+    ]
+  }
+]

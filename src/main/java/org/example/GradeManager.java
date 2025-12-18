@@ -1,24 +1,11 @@
 package org.example;
 
 /**
- * REFACTORED FOR SOLID PRINCIPLES
- * 
- * GradeManager is now a COORDINATOR that delegates work to specialists:
- * - GradeRepository handles storage
- * - GradeExporter handles file export
- * - GradeImporter handles CSV import
- * - GradeStatisticsCalculator handles calculations
- * 
- * This follows:
- * - Single Responsibility Principle (SRP): GradeManager only coordinates
- * - Dependency Inversion Principle (DIP): Depends on interfaces, not concrete classes
- * - Open/Closed Principle (OCP): Easy to swap implementations
- * 
- * Benefits for beginners:
- * - GradeManager is much simpler and easier to understand
- * - Each component has a specific job
- * - Easy to test each component separately
- * - Easy to modify or add new features without affecting others
+ * Coordinator for grade-related operations.
+ *
+ * Delegates storage, import/export, and statistics calculation to injected
+ * collaborators. This class orchestrates high-level use cases such as
+ * recording grades and generating student reports.
  */
 public class GradeManager {
     // Dependencies injected through constructor (Dependency Injection)

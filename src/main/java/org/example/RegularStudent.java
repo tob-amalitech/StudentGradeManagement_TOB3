@@ -32,7 +32,9 @@ public class RegularStudent extends Student {
         else return "F";
     }
     
-    // NEW: Calculate GPA on 4.0 scale for Regular students
+    /**
+     * Calculate GPA on a 4.0 scale for regular students.
+     */
     @Override
     public double calculateGPA(double grade) {
         if (grade >= 90) return 4.0;

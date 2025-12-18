@@ -3,15 +3,9 @@ package org.example;
 import java.io.*;
 
 /**
- * SINGLE RESPONSIBILITY PRINCIPLE (SRP)
- * 
- * This class has ONE job: export grades to files.
- * It doesn't manage grades, import data, or calculate statistics.
- * 
- * Benefits for beginners:
- * - If you want to change file format (add PDF, Excel, etc.), you modify this class
- * - You can test file export separately from grade management
- * - Easy to understand - all export logic is in one place
+ * Handles exporting a student's grade report to a file (text format).
+ *
+ * Responsible for formatting the report content and writing it to disk.
  */
 public class GradeExporter implements IFileExporter {
     private String lastExportedFilename;

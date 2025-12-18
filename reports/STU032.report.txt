@@ -1,0 +1,6 @@
+Report for Lucas Hall (STU032)
+GPA: 94.0
+Grades:
+ - ENG203 (English): 89.00
+ - CS105 (Computer Science): 94.00
+ - HIST210 (History): 99.00

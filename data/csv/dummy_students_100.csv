@@ -1,0 +1,101 @@
+id,name,email,phone,courseCode,courseName,score
+STU001,Student 1,student1@uni.edu,555-010-0001,MAT101,Mathematics,86
+STU002,Student 2,student2@uni.edu,555-010-0002,ENG203,English,72
+STU003,Student 3,student3@uni.edu,555-010-0003,CS105,Computer Science,91
+STU004,Student 4,student4@uni.edu,555-010-0004,HIST210,History,67
+STU005,Student 5,student5@uni.edu,555-010-0005,BIO110,Biology,78
+STU006,Student 6,student6@uni.edu,555-010-0006,MAT101,Mathematics,88
+STU007,Student 7,student7@uni.edu,555-010-0007,ENG203,English,81
+STU008,Student 8,student8@uni.edu,555-010-0008,CS105,Computer Science,59
+STU009,Student 9,student9@uni.edu,555-010-0009,HIST210,History,95
+STU010,Student 10,student10@uni.edu,555-010-0010,BIO110,Biology,74
+STU011,Student 11,student11@uni.edu,555-010-0011,MAT101,Mathematics,69
+STU012,Student 12,student12@uni.edu,555-010-0012,ENG203,English,83
+STU013,Student 13,student13@uni.edu,555-010-0013,CS105,Computer Science,90
+STU014,Student 14,student14@uni.edu,555-010-0014,HIST210,History,62
+STU015,Student 15,student15@uni.edu,555-010-0015,BIO110,Biology,77
+STU016,Student 16,student16@uni.edu,555-010-0016,MAT101,Mathematics,94
+STU017,Student 17,student17@uni.edu,555-010-0017,ENG203,English,71
+STU018,Student 18,student18@uni.edu,555-010-0018,CS105,Computer Science,85
+STU019,Student 19,student19@uni.edu,555-010-0019,HIST210,History,64
+STU020,Student 20,student20@uni.edu,555-010-0020,BIO110,Biology,88
+STU021,Student 21,student21@uni.edu,555-010-0021,MAT101,Mathematics,79
+STU022,Student 22,student22@uni.edu,555-010-0022,ENG203,English,92
+STU023,Student 23,student23@uni.edu,555-010-0023,CS105,Computer Science,68
+STU024,Student 24,student24@uni.edu,555-010-0024,HIST210,History,73
+STU025,Student 25,student25@uni.edu,555-010-0025,BIO110,Biology,80
+STU026,Student 26,student26@uni.edu,555-010-0026,MAT101,Mathematics,87
+STU027,Student 27,student27@uni.edu,555-010-0027,ENG203,English,76
+STU028,Student 28,student28@uni.edu,555-010-0028,CS105,Computer Science,84
+STU029,Student 29,student29@uni.edu,555-010-0029,HIST210,History,66
+STU030,Student 30,student30@uni.edu,555-010-0030,BIO110,Biology,91
+STU031,Student 31,student31@uni.edu,555-010-0031,MAT101,Mathematics,73
+STU032,Student 32,student32@uni.edu,555-010-0032,ENG203,English,82
+STU033,Student 33,student33@uni.edu,555-010-0033,CS105,Computer Science,89
+STU034,Student 34,student34@uni.edu,555-010-0034,HIST210,History,65
+STU035,Student 35,student35@uni.edu,555-010-0035,BIO110,Biology,70
+STU036,Student 36,student36@uni.edu,555-010-0036,MAT101,Mathematics,93
+STU037,Student 37,student37@uni.edu,555-010-0037,ENG203,English,78
+STU038,Student 38,student38@uni.edu,555-010-0038,CS105,Computer Science,60
+STU039,Student 39,student39@uni.edu,555-010-0039,HIST210,History,85
+STU040,Student 40,student40@uni.edu,555-010-0040,BIO110,Biology,76
+STU041,Student 41,student41@uni.edu,555-010-0041,MAT101,Mathematics,71
+STU042,Student 42,student42@uni.edu,555-010-0042,ENG203,English,90
+STU043,Student 43,student43@uni.edu,555-010-0043,CS105,Computer Science,88
+STU044,Student 44,student44@uni.edu,555-010-0044,HIST210,History,69
+STU045,Student 45,student45@uni.edu,555-010-0045,BIO110,Biology,75
+STU046,Student 46,student46@uni.edu,555-010-0046,MAT101,Mathematics,97
+STU047,Student 47,student47@uni.edu,555-010-0047,ENG203,English,63
+STU048,Student 48,student48@uni.edu,555-010-0048,CS105,Computer Science,80
+STU049,Student 49,student49@uni.edu,555-010-0049,HIST210,History,68
+STU050,Student 50,student50@uni.edu,555-010-0050,BIO110,Biology,86
+STU051,Student 51,student51@uni.edu,555-010-0051,MAT101,Mathematics,77
+STU052,Student 52,student52@uni.edu,555-010-0052,ENG203,English,91
+STU053,Student 53,student53@uni.edu,555-010-0053,CS105,Computer Science,66
+STU054,Student 54,student54@uni.edu,555-010-0054,HIST210,History,72
+STU055,Student 55,student55@uni.edu,555-010-0055,BIO110,Biology,83
+STU056,Student 56,student56@uni.edu,555-010-0056,MAT101,Mathematics,89
+STU057,Student 57,student57@uni.edu,555-010-0057,ENG203,English,79
+STU058,Student 58,student58@uni.edu,555-010-0058,CS105,Computer Science,61
+STU059,Student 59,student59@uni.edu,555-010-0059,HIST210,History,94
+STU060,Student 60,student60@uni.edu,555-010-0060,BIO110,Biology,70
+STU061,Student 61,student61@uni.edu,555-010-0061,MAT101,Mathematics,75
+STU062,Student 62,student62@uni.edu,555-010-0062,ENG203,English,87
+STU063,Student 63,student63@uni.edu,555-010-0063,CS105,Computer Science,65
+STU064,Student 64,student64@uni.edu,555-010-0064,HIST210,History,74
+STU065,Student 65,student65@uni.edu,555-010-0065,BIO110,Biology,82
+STU066,Student 66,student66@uni.edu,555-010-0066,MAT101,Mathematics,90
+STU067,Student 67,student67@uni.edu,555-010-0067,ENG203,English,68
+STU068,Student 68,student68@uni.edu,555-010-0068,CS105,Computer Science,92
+STU069,Student 69,student69@uni.edu,555-010-0069,HIST210,History,63
+STU070,Student 70,student70@uni.edu,555-010-0070,BIO110,Biology,85
+STU071,Student 71,student71@uni.edu,555-010-0071,MAT101,Mathematics,64
+STU072,Student 72,student72@uni.edu,555-010-0072,ENG203,English,93
+STU073,Student 73,student73@uni.edu,555-010-0073,CS105,Computer Science,78
+STU074,Student 74,student74@uni.edu,555-010-0074,HIST210,History,67
+STU075,Student 75,student75@uni.edu,555-010-0075,BIO110,Biology,81
+STU076,Student 76,student76@uni.edu,555-010-0076,MAT101,Mathematics,95
+STU077,Student 77,student77@uni.edu,555-010-0077,ENG203,English,69
+STU078,Student 78,student78@uni.edu,555-010-0078,CS105,Computer Science,86
+STU079,Student 79,student79@uni.edu,555-010-0079,HIST210,History,62
+STU080,Student 80,student80@uni.edu,555-010-0080,BIO110,Biology,88
+STU081,Student 81,student81@uni.edu,555-010-0081,MAT101,Mathematics,76
+STU082,Student 82,student82@uni.edu,555-010-0082,ENG203,English,90
+STU083,Student 83,student83@uni.edu,555-010-0083,CS105,Computer Science,71
+STU084,Student 84,student84@uni.edu,555-010-0084,HIST210,History,79
+STU085,Student 85,student85@uni.edu,555-010-0085,BIO110,Biology,84
+STU086,Student 86,student86@uni.edu,555-010-0086,MAT101,Mathematics,67
+STU087,Student 87,student87@uni.edu,555-010-0087,ENG203,English,92
+STU088,Student 88,student88@uni.edu,555-010-0088,CS105,Computer Science,58
+STU089,Student 89,student89@uni.edu,555-010-0089,HIST210,History,96
+STU090,Student 90,student90@uni.edu,555-010-0090,BIO110,Biology,73
+STU091,Student 91,student91@uni.edu,555-010-0091,MAT101,Mathematics,82
+STU092,Student 92,student92@uni.edu,555-010-0092,ENG203,English,70
+STU093,Student 93,student93@uni.edu,555-010-0093,CS105,Computer Science,88
+STU094,Student 94,student94@uni.edu,555-010-0094,HIST210,History,65
+STU095,Student 95,student95@uni.edu,555-010-0095,BIO110,Biology,80
+STU096,Student 96,student96@uni.edu,555-010-0096,MAT101,Mathematics,91
+STU097,Student 97,student97@uni.edu,555-010-0097,ENG203,English,66
+STU098,Student 98,student98@uni.edu,555-010-0098,CS105,Computer Science,83
+STU099,Student 99,student99@uni.edu,555-010-0099,HIST210,History,69
+STU100,Student 100,student100@uni.edu,555-010-0100,BIO110,Biology,87

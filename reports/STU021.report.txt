@@ -1,0 +1,6 @@
+Report for John Doe (STU021)
+GPA: 65.0
+Grades:
+ - MAT101 (Mathematics): 60.00
+ - ENG203 (English): 65.00
+ - CS105 (Computer Science): 70.00
