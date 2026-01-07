@@ -15,7 +15,8 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
- * Simple asynchronous audit logger. Entries are written to file by a background thread.
+ * Simple asynchronous audit logger. Entries are written to file by a background
+ * thread.
  * Rotation occurs when file size exceeds 10MB.
  */
 public class AuditLogger {
@@ -36,7 +37,7 @@ public class AuditLogger {
     public void log(String operationType, String userAction, long durationMs, boolean success) {
         String entry = String.format("%s | TID:%s | %s | %s | %dms | %s",
                 ISO.format(Instant.now().atZone(ZoneOffset.UTC)),
-                Thread.currentThread().getId(),
+                Thread.currentThread().threadId(),
                 operationType,
                 userAction.replaceAll("\n", " "),
                 durationMs,
@@ -57,14 +58,19 @@ public class AuditLogger {
             }
         }
         // final flush
-        try { flushOnce(); } catch (Exception ignored) {}
+        try {
+            flushOnce();
+        } catch (Exception ignored) {
+        }
     }
 
     private void flushOnce() throws IOException {
-        if (queue.isEmpty()) return;
+        if (queue.isEmpty())
+            return;
         List<String> batch = new ArrayList<>();
         String s;
-        while ((s = queue.poll()) != null) batch.add(s);
+        while ((s = queue.poll()) != null)
+            batch.add(s);
 
         // rotate if needed
         try {

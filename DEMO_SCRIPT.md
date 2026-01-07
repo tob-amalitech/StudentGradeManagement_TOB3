@@ -20,22 +20,15 @@ Slide 4 — Architecture (one-liner)
 - **Services:** `DataStore` (in-memory), `FileService`, `ReportGenerator`, `StatsService`, `AuditLogger`, `LRUCache` — wired in `Main` CLI.
 
 Slide 5 — Live Demo Steps (commands)
-- Import sample CSV:
+- **Start Application:**
 ```powershell
-./gradlew run --args="import data/csv/import.csv"
+./gradlew run
 ```
-- Generate concurrent reports for all students:
-```powershell
-./gradlew run --args="gen-reports --parallel 8"
-```
-- Show real-time stats snapshot:
-```powershell
-./gradlew run --args="stats snapshot"
-```
-- Tail the audit log:
-```powershell
-./gradlew run --args="audit tail"
-```
+- **Import sample CSV:** Select option **7** (Bulk Import) -> Enter `data/csv/import.csv` or default.
+- **Generate concurrent reports:** Select option **10** -> Press Enter (for all) -> Enter `8` threads.
+- **Show real-time stats:** Select option **20** to view the live dashboard.
+- **Tail the audit log:** Select option **12** -> Enter line count (e.g. 20).
+
 
 Slide 6 — Talking Points During Demo
 - **Import:** Show streaming read (low memory), validation errors printed, successful count.
