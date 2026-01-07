@@ -11,6 +11,11 @@ public class GradeRepository implements IGradeRepository {
     private int count;
     
     public GradeRepository() {
+        // Use a fixed-size array for simplicity in the lab/demo.
+        // This choice keeps the implementation simple and deterministic
+        // for teaching performance trade-offs. In a real application
+        // prefer `List<Grade>` or a `Map<studentId, List<Grade>>` for
+        // scalable dynamic growth and faster student-scoped access.
         grades = new Grade[100];  // Maximum 100 grades
         count = 0;
     }
@@ -20,6 +25,10 @@ public class GradeRepository implements IGradeRepository {
      */
     @Override
     public void addGrade(Grade grade) {
+        // Simple append - not thread-safe. If concurrent writes are
+        // required, guard with synchronization or swap to
+        // a concurrent collection (e.g., ConcurrentLinkedQueue
+        // or ConcurrentHashMap of lists).
         if (count < grades.length) {
             grades[count++] = grade;
         }

@@ -12,6 +12,9 @@ public class GradeExporter implements IFileExporter {
     
     @Override
     public void exportGradeReport(Student student, IGradeRepository repository) {
+        // Note: This is a simple text exporter intended for demos.
+        // For production-quality reports consider using a templating
+        // library or a PDF generation library for richer formatting.
         String filename = "GradeReport_" + student.getStudentId() + "_" + 
                          student.getName().replace(" ", "_") + ".txt";
         this.lastExportedFilename = filename;

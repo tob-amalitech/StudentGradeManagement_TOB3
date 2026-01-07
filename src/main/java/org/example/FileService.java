@@ -35,6 +35,14 @@ public class FileService {
     /**
      * Stream-import students and grades from a CSV file. Expected CSV header:
      * id,name,email,phone,courseCode,courseName,score
+        *
+        * Implementation notes for demo/lab:
+        * - Uses `Files.lines(...)` to stream the file using NIO.2 and avoid
+        *   loading the entire file into memory (suitable for large files).
+        * - Validation is delegated to `ValidationUtils` so parsing and
+        *   validation responsibilities are separated and reusable.
+        * - Error collection is returned to the caller so the UI can display
+        *   which records failed and why.
      */
     public List<String> importStudentsFromCsv(Path csvPath, DataStore store) throws IOException {
         List<String> errors = new ArrayList<>();

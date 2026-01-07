@@ -18,6 +18,17 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Generates per-student reports concurrently using a fixed thread pool.
+ *
+ * Lab talking points:
+ * - Uses a fixed-size `ExecutorService` so report tasks run in parallel but
+ *   do not overwhelm the host. Thread count is tunable and defaults to
+ *   #availableProcessors when an invalid value is provided.
+ * - Each task performs primarily I/O (writing files) and reads from the
+ *   `DataStore`. To keep reads safe we rely on immutable/reader-safe
+ *   snapshots provided by the store; if concurrent mutations exist, use
+ *   a defensive copy or synchronization.
+ * - The method collects per-report timings and logs success/failure to
+ *   the `AuditLogger` for the audit trail feature.
  */
 public class ReportGenerator {
     private final DataStore store;

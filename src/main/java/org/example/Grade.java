@@ -3,6 +3,20 @@ package org.example;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+/**
+ * Represents a single grade entry for a student.
+ *
+ * Notes for the lab review:
+ * - This is intentionally immutable for primary fields (`courseCode`,
+ *   `courseName`, `score`, `timestamp`) to make read paths thread-safe.
+ * - Compatibility fields (studentId, subject, gradeLevel, passing, gpa)
+ *   are present to support older code paths and exporters; prefer the main
+ *   constructor when creating new Grade records.
+ * - In a production system you would typically store these in a type-safe
+ *   collection keyed by student (e.g., `Map<String, List<Grade>>`) and
+ *   persist to a database. The design here demonstrates serialization,
+ *   simple immutability, and compatibility with legacy constructors.
+ */
 public class Grade implements Serializable {
     private static final long serialVersionUID = 1L;
 
